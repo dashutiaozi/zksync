@@ -1,0 +1,15 @@
+@@ -12,14 +12,3 @@ 如果！货物fmt -- --检查；然后
+    echo  "请通过'cargo fmt'格式化代码，无法提交未格式化的代码"
+    1号出口
+菲
+
+VERFIER_CONTRACT_FILE= “合同/合同/Verifier.sol”
+
+#检查合约的 diff 是否包含将 `DUMMY_VERIFIER` 设置为 true。
+如果git diff --cached $VERFIER_CONTRACT_FILE  | grep -lq '常量 DUMMY_VERIFIER = true ' ;  然后
+    echo -e " ${RED}提交错误！${NC} "
+    echo  “看来‘Verifier.sol’中的行‘constant DUMMY_VERIFIER = true’已被分阶段提交”
+    echo  “无法在启用DUMMY_VERIFIER的情况下提交代码”
+    echo  "请禁用 DUMMY_VERIFIER 并尝试再次提交更改"
+    1号出口
+菲
